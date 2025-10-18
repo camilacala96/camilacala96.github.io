@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Civil Engineer — Camilo Diaz</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <img src="../your-profile.jpeg" alt="Camilo Diaz" class="profile-pic">
+      <div class="header-text">
+        <h1 class="site-name">Civil Engineer</h1>
+        <p class="professions">Cost estimation | Project coordination | AutoCAD | Revit | Microsoft Office | Microsoft Project | Budget Control | Construction Management | Quantity Take-Offs | Construction Finance | Project Scheduling </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <a href="index.html" class="btn" style="background:#007acc;color:#fff;border:none;margin-bottom:18px;display:inline-block">← Back</a>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <p>With a strong foundation in civil engineering and years of hands-on experience leading complex construction projects, I developed a comprehensive understanding of technical, financial, and managerial processes across all project stages — from design review and cost estimation to on-site execution and delivery.
+Throughout my career, I successfully coordinated multidisciplinary teams, optimized resources, and ensured that every project met high standards of quality, safety, and efficiency. My expertise includes:</p>
+      <ul>
+        <li>Managed 10+ large-scale projects across sectors such as educational campuses, aeronautical facilities, government buildings, and healthcare infrastructure.</li>
+        <li>Led project scheduling and critical path analysis using Microsoft Project, ensuring on-time and on-budget delivery.</li>
+        <li>Performed detailed cost analyses, unit price studies, and quantity take-offs to guarantee accurate and competitive budgeting.</li>
+        <li>Supervised field operations, ensuring quality control, compliance with safety and construction standards, and timely execution.</li>
+        <li>Coordinated multidisciplinary teams to align technical and administrative efforts toward client objectives.</li>
+        <li>Reviewed consultant budgets and progress payments, maintaining transparency and financial accuracy.</li>
+        <li>Maintained seamless project communication, attending technical meetings and providing regular updates to directors and stakeholders.</li>
+        <li>Ensured uninterrupted site operations by managing labor allocation, material logistics, and supplier payments effectively.</li>
+        
+      </ul>
+    </section>
+
+    <section class="skills">
+      <h2>Tech Stack</h2>
+      <div class="skills-logos">
+        <div class="skill"><img src="../autocad.png" alt="AutoCAD"><p>AutoCAD</p></div>
+        <div class="skill"><img src="../revit.png" alt="Revit"><p>Revit</p></div>
+        <div class="skill"><img src="../msproject.png" alt="MS Project"><p>MS Project</p></div>
+        <div class="skill"><img src="../excel.png" alt="Excel"><p>Excel</p></div>
+      </div>
+    </section>
+
+
+    <section id="projects">
+  <h2 style="text-align:center; margin-top:60px;">Projects Overview</h2>
+  <canvas id="projectsChart" width="600" height="300"></canvas>
+</section>
+     <!-- Chart Script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('projectsChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Design Projects', 'Supervising Projects', 'Construction Projects'],
+      datasets: [{
+        label: 'Number of Projects',
+        data: [15, 9, 12],
+        backgroundColor: ['#4a5568', '#718096', '#a0aec0'] // tonos sobrios
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { x: { beginAtZero: true, max: 15 } }
+    }
+  });
+</script>
+
+    <section class="connect">
+      <h2>Connect with Me</h2>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/camiloacdiaz" target="_blank"><img src="../linkedin.png" alt="LinkedIn"> LinkedIn</a>
+        <a href="mailto:camiloacdiaz07@gmail.com"><img src="../email.png" alt="Email"> Email</a>
+        <a href="https://github.com/Camilo07Diaz" target="_blank"><img src="../github.png" alt="GitHub"> GitHub</a>
+      </div>
+
+      <div style="margin-top:18px">
+        <a href="hv/Civil_Engineer_Camilo_Diaz_eng.pdf" target="_blank" class="btn" style="background:#222;color:#fff">Download CV</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p>© 2025 Camilo Diaz</p></div></footer>
+</body>
+</html>
