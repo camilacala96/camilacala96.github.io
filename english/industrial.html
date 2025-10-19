@@ -24,24 +24,113 @@
       <p>I’m a Graduate Industrial Engineer from the Julio Garavito Colombian School of Engineering, specialized in process optimization through Lean Management and Six Sigma. I focus on simplifying workflows, reducing waste, and improving performance to create real value for both teams and customers.
 Throughout my career, I successfully coordinated multidisciplinary teams, optimized resources, and ensured that every project met high standards of quality, safety, and efficiency. My expertise includes:</p>
       <ul>
-        <li>Managed 10+ large-scale projects across sectors such as educational campuses, aeronautical facilities, government buildings, and healthcare infrastructure.</li>
-        <li>Led project scheduling and critical path analysis using Microsoft Project, ensuring on-time and on-budget delivery.</li>
-        <li>Performed detailed cost analyses, unit price studies, and quantity take-offs to guarantee accurate and competitive budgeting.</li>
-        <li>Supervised field operations, ensuring quality control, compliance with safety and construction standards, and timely execution.</li>
-        <li>Coordinated multidisciplinary teams to align technical and administrative efforts toward client objectives.</li>
-        <li>Reviewed consultant budgets and progress payments, maintaining transparency and financial accuracy.</li>
-        <li>Maintained seamless project communication, attending technical meetings and providing regular updates to directors and stakeholders.</li>
-        <li>Ensured uninterrupted site operations by managing labor allocation, material logistics, and supplier payments effectively.</li>
-        
+<div class="expertise-gauges">
+  <h3 style="margin-top:30px;">Industrial Engineering Expertise</h3>
+  <p style="color:#555;max-width:700px;">
+    My career has been defined by a commitment to continuous improvement and efficiency.
+    Below is a quick overview of my key areas of expertise, represented through performance gauges that reflect measurable impact achieved across industrial, automotive, and construction environments.
+  </p>
+
+  <div id="gaugesContainer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;margin-top:25px;"></div>
+</div>
+
+<!-- Gauge Script -->
+<script>
+const gaugesData = [
+  {label:"Process Optimization", value:35, description:"Reduced operational times by up to 35% through workflow redesign and standardization."},
+  {label:"Lean Management & Six Sigma", value:25, description:"Achieved over 25% efficiency gains by eliminating waste and applying Lean tools."},
+  {label:"Workflow Automation", value:50, description:"Decreased manual tasks by 50% with process automation and digital documentation."},
+  {label:"Continuous Improvement", value:32, description:"Led Kaizen and VSM initiatives that improved productivity and collaboration."},
+  {label:"Team Coordination & Leadership", value:30, description:"Enhanced team compliance and communication by 30% across departments."},
+  {label:"Standardization & Quality Systems", value:80, description:"Maintained ISO-aligned procedures ensuring sustainable process quality."}
+];
+
+const gaugesContainer = document.getElementById('gaugesContainer');
+
+function createGauge(label, value, description, color="#007acc") {
+  const card = document.createElement('div');
+  card.style.background="#f9f9f9";
+  card.style.borderRadius="12px";
+  card.style.padding="18px";
+  card.style.textAlign="center";
+  card.style.boxShadow="0 4px 14px rgba(0,0,0,0.08)";
+
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS,"svg");
+  svg.setAttribute("viewBox","0 0 260 150");
+  svg.style.width="100%";
+  svg.style.height="150px";
+
+  const cx=130, cy=130, r=100;
+  const circumference=Math.PI*r;
+  const startX=cx-r, startY=cy, endX=cx+r, endY=cy;
+  const d=`M ${startX} ${startY} A ${r} ${r} 0 0 1 ${endX} ${endY}`;
+
+  const bg=document.createElementNS(svgNS,"path");
+  bg.setAttribute("d",d);
+  bg.setAttribute("stroke","#ddd");
+  bg.setAttribute("stroke-width","18");
+  bg.setAttribute("fill","none");
+
+  const arc=document.createElementNS(svgNS,"path");
+  arc.setAttribute("d",d);
+  arc.setAttribute("stroke",color);
+  arc.setAttribute("stroke-width","18");
+  arc.setAttribute("stroke-linecap","round");
+  arc.setAttribute("fill","none");
+  arc.setAttribute("stroke-dasharray",circumference);
+  arc.setAttribute("stroke-dashoffset",circumference);
+  arc.style.transition="stroke-dashoffset 1.2s ease";
+
+  svg.appendChild(bg);
+  svg.appendChild(arc);
+  card.appendChild(svg);
+
+  const title=document.createElement('h4');
+  title.textContent=label;
+  title.style.margin="10px 0 5px";
+  title.style.fontSize="16px";
+  title.style.color="#222";
+
+  const val=document.createElement('p');
+  val.textContent=value + "% impact";
+  val.style.fontWeight="700";
+  val.style.fontSize="20px";
+  val.style.color=color;
+  val.style.margin="0";
+
+  const desc=document.createElement('p');
+  desc.textContent=description;
+  desc.style.fontSize="13px";
+  desc.style.color="#555";
+  desc.style.marginTop="10px";
+
+  card.appendChild(title);
+  card.appendChild(val);
+  card.appendChild(desc);
+
+  setTimeout(()=>{
+    const offset=circumference*(1-value/100);
+    arc.setAttribute("stroke-dashoffset",offset);
+  },100);
+
+  return card;
+}
+
+gaugesData.forEach((g,i)=>{
+  const gauge=createGauge(g.label,g.value,g.description);
+  gaugesContainer.appendChild(gauge);
+});
+</script> 
       </ul>
     </section>
 
     <section class="skills">
       <h2>Tech Stack</h2>
       <div class="skills-logos">
-        <div class="skill"><img src="../autocad.png" alt="AutoCAD"><p>AutoCAD</p></div>
-        <div class="skill"><img src="../revit.png" alt="Revit"><p>Revit</p></div>
-        <div class="skill"><img src="../msproject.png" alt="MS Project"><p>MS Project</p></div>
+        <div class="skill"><img src="../autocad.png" alt="Bizagi Modeler"><p>Bizagi Modeler</p></div>
+        <div class="skill"><img src="../revit.png" alt="Visio"><p>Visio</p></div>
+        <div class="skill"><img src="../msproject.png" alt="Poer BI"><p>Poer BI</p></div>
         <div class="skill"><img src="../excel.png" alt="Excel"><p>Excel</p></div>
       </div>
     </section>
@@ -77,13 +166,13 @@ Throughout my career, I successfully coordinated multidisciplinary teams, optimi
     <section class="connect">
       <h2>Connect with Me</h2>
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/camiloacdiaz" target="_blank"><img src="../linkedin.png" alt="LinkedIn"> LinkedIn</a>
-        <a href="mailto:camiloacdiaz07@gmail.com"><img src="../email.png" alt="Email"> Email</a>
-        <a href="https://github.com/Camilo07Diaz" target="_blank"><img src="../github.png" alt="GitHub"> GitHub</a>
+        <a href="https://www.linkedin.com/in/camilacala" target="_blank"><img src="../linkedin.png" alt="LinkedIn"> LinkedIn</a>
+        <a href="mailto:cami.cala01@gotmail.com"><img src="../email.png" alt="Email"> Email</a>
+        <a href="https://github.com/camilacala96" target="_blank"><img src="../github.png" alt="GitHub"> GitHub</a>
       </div>
 
       <div style="margin-top:18px">
-        <a href="hv/Civil_Engineer_Camilo_Diaz_eng.pdf" target="_blank" class="btn" style="background:#222;color:#fff">Download CV</a>
+        <a href="hv/Industrial_Engineer_Camila_Cala.pdf" target="_blank" class="btn" style="background:#222;color:#fff">Download CV</a>
       </div>
     </section>
   </main>
