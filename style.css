@@ -22,7 +22,7 @@
 @media (min-width: 800px) {
   .header-inner {
     flex-direction: row;
-    justify-content: space-around; /* centra ambos elementos en el header */
+    justify-content: space-between; /* texto a la izquierda, imagen más a la derecha */
     align-items: center;
     text-align: left;
   }
@@ -50,8 +50,8 @@
 
 @media (min-width: 800px) {
   .header-text {
-    text-align: right; /* texto a la derecha de la imagen */
-    margin-right: 40px;
+    text-align: left;
+    margin-left: 40px;
   }
 }
 
@@ -72,4 +72,3 @@
   font-weight: 700;
   color: #fff;
 }
-
