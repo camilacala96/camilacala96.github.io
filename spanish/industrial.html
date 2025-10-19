@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Industrial Engineer — Camila Cala</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <img src="../Foto.png" alt="Camila Cala" class="profile-pic">
+      <div class="header-text">
+        <h1 class="site-name">Industrial Engineer</h1>
+        <p class="professions"> Lean Six Sigma | Automatization | BPMN | Microsoft Office | Power BI | Process Optimization </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <a href="index.html" class="btn" style="background:#007acc;color:#fff;border:none;margin-bottom:18px;display:inline-block">← Back</a>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <p>I’m a Graduate Industrial Engineer from the Julio Garavito Colombian School of Engineering, specialized in process optimization through Lean Management and Six Sigma. I focus on simplifying workflows, reducing waste, and improving performance to create real value for both teams and customers.
+Throughout my career, I successfully coordinated multidisciplinary teams, optimized resources, and ensured that every project met high standards of quality, safety, and efficiency. My expertise includes:</p>
+      <ul>
+<div class="expertise-gauges">
+  <h3 style="margin-top:30px;">Key Areas of Expertise</h3>
+  <div id="gaugesContainer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;margin-top:25px;"></div>
+</div>
+
+<!-- GRID: ahora muestra 3 columnas por fila -->
+  <div id="gaugesContainer" 
+       style="display:grid;
+              grid-template-columns:repeat(3,1fr);
+              gap:25px;
+              margin-top:25px;">
+  </div>
+</div>
+
+<!-- Gauge Script -->
+<script>
+const gaugesData = [
+  {label:"Process Optimization", value:35, description:"Reduced operational times by up to 35% through workflow redesign and standardization."},
+  {label:"Lean Management & Six Sigma", value:25, description:"Achieved over 25% efficiency gains by eliminating waste and applying Lean tools."},
+  {label:"Workflow Automation", value:50, description:"Decreased manual tasks by 50% with process automation and digital documentation."},
+  {label:"Continuous Improvement", value:32, description:"Led Kaizen and VSM initiatives that improved productivity and collaboration."},
+  {label:"Team Coordination & Leadership", value:30, description:"Enhanced team compliance and communication by 30% across departments."},
+  {label:"Standardization & Quality Systems", value:80, description:"Maintained ISO-aligned procedures ensuring sustainable process quality."}
+];
+
+const gaugesContainer = document.getElementById('gaugesContainer');
+
+function createGauge(label, value, description, color="#007acc") {
+  const card = document.createElement('div');
+  card.style.background="#f9f9f9";
+  card.style.borderRadius="12px";
+  card.style.padding="18px";
+  card.style.textAlign="center";
+  card.style.boxShadow="0 4px 14px rgba(0,0,0,0.08)";
+  card.style.transition="transform 0.3s ease";
+  card.onmouseover=()=>card.style.transform="translateY(-5px)";
+  card.onmouseout=()=>card.style.transform="translateY(0)";
+
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS,"svg");
+  svg.setAttribute("viewBox","0 0 260 150");
+  svg.style.width="100%";
+  svg.style.height="150px";
+
+  const cx=130, cy=130, r=100;
+  const circumference=Math.PI*r;
+  const startX=cx-r, startY=cy, endX=cx+r, endY=cy;
+  const d=`M ${startX} ${startY} A ${r} ${r} 0 0 1 ${endX} ${endY}`;
+
+  const bg=document.createElementNS(svgNS,"path");
+  bg.setAttribute("d",d);
+  bg.setAttribute("stroke","#ddd");
+  bg.setAttribute("stroke-width","18");
+  bg.setAttribute("fill","none");
+
+  const arc=document.createElementNS(svgNS,"path");
+  arc.setAttribute("d",d);
+  arc.setAttribute("stroke",color);
+  arc.setAttribute("stroke-width","18");
+  arc.setAttribute("stroke-linecap","round");
+  arc.setAttribute("fill","none");
+  arc.setAttribute("stroke-dasharray",circumference);
+  arc.setAttribute("stroke-dashoffset",circumference);
+  arc.style.transition="stroke-dashoffset 1.2s ease";
+
+  svg.appendChild(bg);
+  svg.appendChild(arc);
+  card.appendChild(svg);
+
+  const title=document.createElement('h4');
+  title.textContent=label;
+  title.style.margin="10px 0 5px";
+  title.style.fontSize="16px";
+  title.style.color="#222";
+
+  const val=document.createElement('p');
+  val.textContent=value + "% impact";
+  val.style.fontWeight="700";
+  val.style.fontSize="20px";
+  val.style.color=color;
+  val.style.margin="0";
+
+  const desc=document.createElement('p');
+  desc.textContent=description;
+  desc.style.fontSize="13px";
+  desc.style.color="#555";
+  desc.style.marginTop="10px";
+
+  card.appendChild(title);
+  card.appendChild(val);
+  card.appendChild(desc);
+
+  setTimeout(()=>{
+    const offset=circumference*(1-value/100);
+    arc.setAttribute("stroke-dashoffset",offset);
+  },100);
+
+  return card;
+}
+
+// Render gauges
+gaugesData.forEach(g=>{
+  const gauge=createGauge(g.label,g.value,g.description);
+  gaugesContainer.appendChild(gauge);
+});
+
+// Responsive behaviour for small screens
+window.addEventListener('resize',()=>{
+  if(window.innerWidth < 700){
+    gaugesContainer.style.gridTemplateColumns='repeat(1,1fr)';
+  } else if(window.innerWidth < 1000){
+    gaugesContainer.style.gridTemplateColumns='repeat(2,1fr)';
+  } else {
+    gaugesContainer.style.gridTemplateColumns='repeat(3,1fr)';
+  }
+});
+window.dispatchEvent(new Event('resize'));
+</script>
+
+      </ul>
+    </section>
+
+<section class="skills">
+      <h2>Tech Stack</h2>
+      <div class="skills-logos">
+        <!-- Replace image names with the ones you have in repo -->
+        <div class="skill"><img src="images/powerbi.png" alt="PowerBI"><p>PowerBI</p></div>
+        <div class="skill"><img src="images/excel.png" alt="Excel"><p>Excel</p></div>
+        <div class="skill"><img src="images/visio.png" alt="Visio"><p>Visio</p></div>
+        <div class="skill"><img src="images/lean.png" alt="Lean Six Sigma"><p>Lean Six Sigma</p></div>
+        <div class="skill"><img src="images/bizagimodeler.png" alt="Bizagi Modeler"><p>Bizagi Modeler</p></div>
+      </div>
+    </section>
+
+    <section class="connect">
+      <h2>Connect with Me</h2>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/camilacala" target="_blank"><img src="../linkedin.png" alt="LinkedIn"> LinkedIn</a>
+        <a href="mailto:cami.cala01@hotmail.com"><img src="../email.png" alt="Email"> Email</a>
+        <a href="https://github.com/camilacala96" target="_blank"><img src="../github.png" alt="GitHub"> GitHub</a>
+      </div>
+
+      <div style="margin-top:18px">
+        <a href="hv/Industrial_Engineer_Camila_Cala.pdf" target="_blank" class="btn" style="background:#222;color:#fff">Download CV</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p>© 2025 Camila Cala</p></div></footer>
+</body>
+</html>
