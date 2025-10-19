@@ -130,34 +130,6 @@ gaugesData.forEach((g,i)=>{
       </div>
     </section>
 
-
-    <section id="projects">
-  <h2 style="text-align:center; margin-top:60px;">Projects Overview</h2>
-  <canvas id="projectsChart" width="600" height="300"></canvas>
-</section>
-     <!-- Chart Script -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const ctx = document.getElementById('projectsChart').getContext('2d');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Design Projects', 'Supervising Projects', 'Construction Projects'],
-      datasets: [{
-        label: 'Number of Projects',
-        data: [15, 9, 12],
-        backgroundColor: ['#4a5568', '#718096', '#a0aec0'] // tonos sobrios
-      }]
-    },
-    options: {
-      indexAxis: 'y',
-      responsive: true,
-      plugins: { legend: { display: false } },
-      scales: { x: { beginAtZero: true, max: 15 } }
-    }
-  });
-</script>
-
     <section class="connect">
       <h2>Connect with Me</h2>
       <div class="social-links">
@@ -172,6 +144,6 @@ gaugesData.forEach((g,i)=>{
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container"><p>© 2025 Camilo Diaz</p></div></footer>
+  <footer class="site-footer"><div class="container"><p>© 2025 Camila Cala</p></div></footer>
 </body>
 </html>
