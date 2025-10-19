@@ -29,6 +29,15 @@ Throughout my career, I successfully coordinated multidisciplinary teams, optimi
   <div id="gaugesContainer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;margin-top:25px;"></div>
 </div>
 
+<!-- GRID: ahora muestra 3 columnas por fila -->
+  <div id="gaugesContainer" 
+       style="display:grid;
+              grid-template-columns:repeat(3,1fr);
+              gap:25px;
+              margin-top:25px;">
+  </div>
+</div>
+
 <!-- Gauge Script -->
 <script>
 const gaugesData = [
@@ -49,6 +58,9 @@ function createGauge(label, value, description, color="#007acc") {
   card.style.padding="18px";
   card.style.textAlign="center";
   card.style.boxShadow="0 4px 14px rgba(0,0,0,0.08)";
+  card.style.transition="transform 0.3s ease";
+  card.onmouseover=()=>card.style.transform="translateY(-5px)";
+  card.onmouseout=()=>card.style.transform="translateY(0)";
 
   const svgNS = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(svgNS,"svg");
@@ -112,11 +124,25 @@ function createGauge(label, value, description, color="#007acc") {
   return card;
 }
 
-gaugesData.forEach((g,i)=>{
+// Render gauges
+gaugesData.forEach(g=>{
   const gauge=createGauge(g.label,g.value,g.description);
   gaugesContainer.appendChild(gauge);
 });
-</script> 
+
+// Responsive behaviour for small screens
+window.addEventListener('resize',()=>{
+  if(window.innerWidth < 700){
+    gaugesContainer.style.gridTemplateColumns='repeat(1,1fr)';
+  } else if(window.innerWidth < 1000){
+    gaugesContainer.style.gridTemplateColumns='repeat(2,1fr)';
+  } else {
+    gaugesContainer.style.gridTemplateColumns='repeat(3,1fr)';
+  }
+});
+window.dispatchEvent(new Event('resize'));
+</script>
+
       </ul>
     </section>
 
@@ -124,10 +150,11 @@ gaugesData.forEach((g,i)=>{
       <h2>Tech Stack</h2>
       <div class="skills-logos">
         <!-- Replace image names with the ones you have in repo -->
-        <div class="skill"><img src="powerbi.png" alt="PowerBI"><p>PowerBI</p></div>
-        <div class="skill"><img src="excel.png" alt="Excel"><p>Excel</p></div>
-        <div class="skill"><img src="visio.png" alt="Visio"><p>Excel</p></div>
-        <div class="skill"><img src="bizagimodeler.png" alt="Bizagi Modeler"><p>Excel</p></div>
+        <div class="skill"><img src="images/powerbi.png" alt="PowerBI"><p>PowerBI</p></div>
+        <div class="skill"><img src="images/excel.png" alt="Excel"><p>Excel</p></div>
+        <div class="skill"><img src="images/visio.png" alt="Visio"><p>Visio</p></div>
+        <div class="skill"><img src="images/lean.png" alt="Lean Six Sigma"><p>Lean Six Sigma</p></div>
+        <div class="skill"><img src="images/bizagimodeler.png" alt="Bizagi Modeler"><p>Bizagi Modeler</p></div>
       </div>
     </section>
 
