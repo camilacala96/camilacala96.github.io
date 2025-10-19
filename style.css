@@ -19,10 +19,14 @@ body {
 
 /* === HEADER === */
 .site-header {
-  background: linear-gradient(135deg, #d8cdd8, #b8b0c7); /* tonos lavanda-gris */
-  color: #fff;
-  padding: 40px 0 28px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+ .site-header {
+  background: linear-gradient(120deg, #e9e4df, #d6cfc8, #f7f6f5);
+  color: #2f2f2f;
+  padding: 60px 0 40px;
+  text-align: center;
+  border-bottom: 1px solid #d1c8bf;
+  position: relative;
+  overflow: hidden;
 }
 
 .header-inner {
@@ -121,34 +125,40 @@ body {
 
 /* === SECCIÓN DE HABILIDADES === */
 .skills {
-  margin: 50px 0;
+  margin: 60px 0;
 }
 
 .skills-logos {
   display: flex;
   flex-wrap: wrap;
-  gap: 28px;
   justify-content: center;
+  gap: 30px;
 }
 
 .skill {
-  width: 110px;
-  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 15px;
+  width: 120px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(185, 145, 90, 0.15);
 }
 
 .skill img {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 8px;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 8px;
 }
 
 .skill p {
-  margin: 0;
   font-size: 13px;
   font-weight: 600;
-  color: #555;
+  color: #4a4a4a;
 }
 
 /* === CONECTA / REDES === */
